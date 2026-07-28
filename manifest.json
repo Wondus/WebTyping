@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "WebTyping",
+  "version": "1.5.0",
+  "description": "Turn the current page into a private typing trainer.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": { "default_title": "Start or close WebTyping" },
+  "commands": { "toggle-webtyping": { "suggested_key": { "default": "Alt+Shift+T" }, "description": "Start or close WebTyping" } },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "webtyping@local",
+      "strict_min_version": "121.0"
+    }
+  }
+}
