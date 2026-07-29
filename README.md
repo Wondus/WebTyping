@@ -2,7 +2,7 @@
 
 WebTyping is a lightweight browser extension that turns an article or any selected page element into a private typing trainer. Page text never leaves the browser: there are no external APIs, analytics, trackers, or cloud storage.
 
-WebTyping is open-source software released under the [MIT License](LICENSE).
+WebTyping is open-source software released under the [MIT License](LICENSE). See the [Privacy Policy](docs/privacy.md) and [store privacy disclosures](STORE_DISCLOSURES.md).
 
 The extension detects the likely main content, highlights it for confirmation, and renders a clean reader inside an isolated Shadow DOM. It shows character-level errors, a smooth Monkeytype-style caret, live WPM, weighted average WPM, accuracy, and segment progress. A DevTools-style picker is always available when automatic detection chooses the wrong area.
 
@@ -113,6 +113,8 @@ The reader creates its word elements once. Each keystroke updates only the curre
 - `commands`: declares the keyboard shortcut and is not a separate permission.
 
 There are no host permissions and no content script running on every page. The extension performs no network requests and does not store article text. The source page is not destructively edited; only a temporary candidate outline is applied and restored.
+
+The public privacy policy is available at <https://wondus.github.io/WebTyping/privacy.html>.
 
 ## Known limitations
 
