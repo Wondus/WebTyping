@@ -33,7 +33,7 @@ The settings panel includes:
 
 ```bash
 npm install
-npm run build
+npm run build:firefox
 ```
 
 Development build with watch mode:
@@ -47,12 +47,13 @@ Quality checks:
 ```bash
 npm run typecheck
 npm test
-npm run build
+npm run build:firefox
+npm run build:chromium
 ```
 
 ## Load in Chrome or Chromium
 
-1. Run `npm run build`.
+1. Run `npm run build:chromium`.
 2. Open `chrome://extensions`.
 3. Enable **Developer mode**.
 4. Select **Load unpacked** and choose the `dist` directory.
@@ -60,11 +61,22 @@ npm run build
 
 ## Load in Firefox
 
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Select **Load Temporary Add-on**.
-3. Choose `dist/manifest.json`.
+1. Run `npm run build:firefox`.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Select **Load Temporary Add-on**.
+4. Choose `dist/manifest.json`.
 
-Firefox removes temporary add-ons after a browser restart. Permanent distribution requires signing through Mozilla Add-ons. The manifest contains both Chromium's `background.service_worker` and Firefox's `background.scripts` fallback.
+Firefox removes temporary add-ons after a browser restart. Permanent distribution requires signing through Mozilla Add-ons. Browser-specific build commands ensure that each package contains only the manifest keys supported by its target browser.
+
+## Create release packages
+
+On Windows, run:
+
+```powershell
+npm run release
+```
+
+This runs the type check and tests, then creates three versioned archives in `release/`: Firefox, Chromium, and Firefox reviewer source code. See `FIREFOX_REVIEW.md` for the exact source-build instructions supplied to Mozilla.
 
 ## Keyboard controls
 
